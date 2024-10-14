@@ -12,17 +12,14 @@ def get_num_words(text):
     return len(words)
 
 def get_count_character(text):
-    string = text.lower()
-    count = 0
     counted_characerts = {}
-    for character in string:
-        count += 1
-        counted_characerts[character] = count 
+    for character in text:
+        lowered = character.lower()
+        if lowered in counted_characerts:
+            counted_characerts[lowered] += 1
+        else:
+            counted_characerts[lowered] = 1
     return counted_characerts
-    print(counted_characerts)
-
-
-
 
 def get_book_text(path):
     with open(path) as f:
